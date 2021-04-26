@@ -1,0 +1,34 @@
+{% extends "index.html" %}
+{% block titulo %}Listado de clientes {% endblock %}
+{% block titulo2 %}Administracion {% endblock %}
+{% block contenido %}
+    <!--responsive ajusta la tabla a los tamaños -->
+    <div class="table-responsive">
+        <a href="{%url 'nuevocliente' %}">
+            <button type="button" class="m-4 btn btn-primary">Agregar Cliente</button></a>
+        <table class="table">
+            <thead class="table-dark">
+                <tr>
+                    <th>Apellido</th>
+                    <th>Nombre</th>
+                    <!--agregar boton para agregar nuevo cliente fuera de tabla
+                        <th>Cargar</th>-->
+                    <th>Editar</th>
+                    <th>Eliminar</th>
+                    <th></th>
+                </tr>
+            </thead>
+            {% for cl in clientes %}
+                <tr>
+                    <td>{{ cl.apellido }}</td>
+                    <td>{{ cl.nombre }}</td>
+                    <td><a href="{% url "editarcliente" cl.id %}"><img style="width: 7%;"  src="{{ STATIC_URL}}images/edit-regular.svg"> </a></td>
+                    <td><a href="{% url "borrarcliente" cl.id %}"><img style="width: 7%;" src="{{ STATIC_URL }}images/trash-alt-solid.svg"> </a><td>
+                    <td></td>
+                </tr>
+            {% endfor %}
+        </table>
+        <a href="{%url 'nuevocliente' %}">
+            <button type="button" class="m-4 btn btn-primary">Agregar Cliente</button></a>
+    </div>
+{% endblock %}

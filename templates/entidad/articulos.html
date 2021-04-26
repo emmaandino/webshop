@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block titulo %} Listado de Artículos {% endblock %}
+{% block titulo2 %} Administracion {% endblock %}
+{% block contenido %}
+    <div class="table-responsive">
+        <a href="{%url 'nuevoarticulo' %}">
+            <button type="button" class="m-4 btn btn-primary">Agregar Articulo</button></a>
+        <table class="table">
+            <thead class="table-dark">
+                <tr>    
+                    <th>Nombre </th>
+                    <th>Codigo</th>
+                    <th>Categoria</th>
+                    <th>Editar</th>
+                    <th>Eliminar</th>
+                    <th></th>
+                </tr>
+            </thead>
+            {% for articulo in articulos %}
+                <tr>
+                    <td>{{ articulo.nombre }}</td>
+                    <td>{{ articulo.codigo }}</td>
+                    <td>{{ articulo.categoria }}</td>
+                    <td><a href="{%url "editararticulo" articulo.id %}">
+                        <img style="width: 7%;"  src="{{ STATIC_URL}}images/edit-regular.svg"></a>
+                    </td>
+                    <td><a href="{%url "borrararticulo" articulo.id %}">
+                        <img style="width: 7%;" src="{{ STATIC_URL }}images/trash-alt-solid.svg"> </a>
+                    </td>
+                    <td></td>
+                </tr>
+            {% endfor %}
+        </table>
+        <a href="{%url 'nuevoarticulo' %}">
+            <button type="button" class="m-4 btn btn-primary">Agregar Articulo</button></a>
+    </div>
+{% endblock %}

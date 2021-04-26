@@ -1,0 +1,16 @@
+{% extends "index.html" %}
+{% block titulo %} Administracion de clientes {% endblock %}
+{% block titulo2 %} Editar cliente{% endblock %}
+{% block contenido %}
+    <form method="POST" enctype="multipart/form-data" novalidate="">
+        <!--esto protege la info del form-->
+        {% csrf_token %}
+            <div class="row">
+                <div class="col-xs-3">
+                    {{ form.as_p }}
+                </div>
+            </div>
+         <!--para que las partes del form vayan cada una abajo de la otra -->
+        <input type="submit" value="Grabar" class="btn btn-secondary">
+    </form>
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends "index.html" %}
+{% block titulo %} Listado de categorias {% endblock %}
+{% block titulo2 %} Administracion {% endblock %}
+{% block contenido %}
+
+    <div class="table-responsive">
+        <table class="table">
+            <thead class="table-dark">
+                <tr>    
+                    <th>Nombre </th>
+                    <th>Descripción</th>
+                    <th>Editar</th>
+                    <th>Eliminar</th>
+                    <th></th>
+                </tr>
+            </thead>
+            {% for categoria in categorias %}
+                <tr>
+                    <td>{{ categoria.nombre }}</td>
+                    <td>{{ categoria.descripción }}</td>
+                    <td><a href="{% url "editarcategoria" categoria.id %}"><img style="width: 7%;"  src="{{ STATIC_URL}}images/edit-regular.svg"></a></td>
+                    <td><a href="{% url "borrarcategoria" categoria.id %}"><img style="width: 7%;" src="{{ STATIC_URL }}images/trash-alt-solid.svg"></a></td>
+                    <td></td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+{% endblock %}

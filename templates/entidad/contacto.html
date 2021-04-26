@@ -1,0 +1,25 @@
+{% extends "index.html" %}
+{% block titulo %}Contacto {% endblock %}
+
+{% block contenido %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto</title>
+</head>
+
+<body> 
+    <ul>
+        <a href="mailto:nombre@direccion.com">Correo electronico</a><br><br>  
+        <a>Numero Telefonico: 123456789</a><br><br>
+        <a>Redes Sociales</a>
+        <a href="http://www.instagram.com" target="_blank"><img style="width: 4%;" src="{{ STATIC_URL}}images/instagram-icon.png"></a>
+        <a href="http://www.facebook.com" target="_blank"><img style="width: 4%;" src="{{ STATIC_URL}}images/facebook-icon.png"></a>
+    </ul>
+
+</body>
+{% endblock %}
+</html>
